@@ -1,0 +1,77 @@
+<html ng-app="abaProfessor">
+<head>
+	<meta charset="utf-8">
+	<title>Professor</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/sigab.css">
+	<script src="angular/angular.js"></script>
+	<script type="js/app.js"></script>
+	<script src="js/controller/angularApp.js"></script>
+
+</head>
+<body ng-controller="abaProfessorCtrl">
+	<div class="jumbotron">
+		<h2>SIGAB - CADEIRAS</h2>
+		<h4>Acesando como Aluno</h4>
+		<table class="table">
+			<tr>
+				<th>Disciplina</th>
+				<th>Horario</th>
+				<th>Dia</th>
+				<th>Professor</th>
+				<th>ID</th> 
+				<th>Opções</th>
+			</tr>
+			<tr ng-class="{'selecionado negrito': categoria.selecionado}" ng-repeat="categoria in cadeiras">
+				<td>{{categoria.disciplina}}</td>
+				<td>{{categoria.horario}}</td>
+				<td>{{categoria.dia}}</td>
+				<td>{{categoria.professor}}</td>
+				<td>{{categoria._id}}</td>
+				<td>
+                   	<button type="button" class="btn btn-default active btn-xs" ng-click="atualizarCategoria(categoria)">Editar</button>
+                    <button type="button" class="btn btn-danger active btn-xs" ng-click="deletarCategoria(categoria._id)">Remover</button></td>
+			</tr>
+		</table>
+		<hr/>
+		<input class="form-control" type="text" ng-model="categoria.disciplina" placeholder="ex: Calculo I"/>
+		<input class="form-control" type="text" ng-model="categoria.horario" placeholder="ex: 10 - 12"/>
+		<input class="form-control" type="text" ng-model="categoria.dia" placeholder="ex: Seg - Ter"/>
+		<input class="form-control" type="text" ng-model="categoria.professor" placeholder="ex: Albus Coerelius"/>
+		<button type="button" class="btn btn-primary btn-block" ng-click="adicionarCadeira(categoria)" ng-disabled = "!categoria.disciplina || !categoria.horario || !categoria.dia || !categoria.professor">Adicionar Cadeira</button>
+		<button type="submit" class="btn btn-info btn-block" ng-click="updateCategoria(categoria._id)">Atualizar</button>
+		{{categoria}}
+	</div>
+
+	<div class="jumbotron">
+		<h2>SIGAB - ALUNOS</h2>
+		<h4>acessando como Professor</h4>
+		<table class="table">
+			<tr>
+				<th>Nome</th>
+				<th>Matricula</th>
+				<th>CRE</th>
+				<th>ID</th>
+				<th>Opções</th>
+			</tr>
+			<tr ng-class="{'selecionado negrito': infos.selecionado}" ng-repeat="infos in alunos">
+				<td>{{infos.fullname}}</td>
+				<td>{{infos.matricula}}</td>
+				<td>{{infos.cre}}</td>
+				<td>{{infos._id}}</td>
+				<td>
+                   	<button type="button" class="btn btn-default active btn-xs" ng-click="atualizarInfos(infos)">Editar</button>
+                   	<button type="button" class="btn btn-danger active btn-xs " ng-click="deletarAluno(infos._id)">Remover</button></td>
+			</tr>
+		</table>
+		<hr/>
+		<input class="form-control" type="text" ng-model="infos.fullname" placeholder="ex: Joao"/>
+		<input class="form-control" type="text" ng-model="infos.matricula" placeholder="ex: 115.112.441"/>
+		<input class="form-control" type="text" ng-model="infos.cre" placeholder="ex: 10.0"/>
+		<button type="button" class="btn btn-primary btn-block" ng-click="adicionarAluno(infos)" ng-disabled = "!infos.fullname || !infos.matricula || !infos.cre">Adicionar Aluno</button>
+		<button type="submit" class="btn btn-info btn-block" ng-click="updateAlunos(categoria._id)">Atualizar</button>
+	</div>
+
+
+</body>
+</html>

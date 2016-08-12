@@ -1,0 +1,39 @@
+		.jumbotron {
+			width: 90%;
+			text-align: center;
+			margin-top: 20px;
+			margin-left: auto;
+			margin-right: auto;
+			background-color: rgba(0, 0, 0, 0.3);
+			box-shadow: 2px 2px 5px #000000
+
+
+		}
+		.table {
+			margin-top: 20px;
+			
+		}
+		.form-control {
+			margin-bottom: 5px;
+		}
+		.selecionado {
+			background-color: lightblue;
+		}
+		.negrito {
+			font-weight: bold;
+		}
+		body {
+	    background-image: url("../images/sigab.jpg");
+	    background-color: #cccccc;
+
+		} 
+		.table {
+			font-family: Tahoma;
+			color: white;
+		}
+		h2 {
+			color: #FFFFFF;
+			font-family: Tahoma;
+			font-weight: bolder;
+
+		}
